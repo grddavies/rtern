@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Conditional (Ternary) Operator — ? • rtern</title>
+<title>Check if an expression is an assignment — is_assignment • rtern</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Conditional (Ternary) Operator — ?" />
-<meta property="og:description" content="Who has time for if/else?" />
+<meta property="og:title" content="Check if an expression is an assignment — is_assignment" />
+<meta property="og:description" content="Check if an expression is an assignment" />
 
 
 
@@ -108,31 +108,29 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Conditional (Ternary) Operator</h1>
-    <small class="dont-index">Source: <a href='https://github.com/hedscan/rtern/blob/master/R/conditional_operator.R'><code>R/conditional_operator.R</code></a></small>
-    <div class="hidden name"><code>help.Rd</code></div>
+    <h1>Check if an expression is an assignment</h1>
+    <small class="dont-index">Source: <a href='https://github.com/hedscan/rtern/blob/master/R/is_assignment.R'><code>R/is_assignment.R</code></a></small>
+    <div class="hidden name"><code>is_assignment.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Who has time for if/else?</p>
+    <p>Check if an expression is an assignment</p>
     </div>
 
-    <pre class="usage"><span class='fu'>`?`</span><span class='op'>(</span><span class='va'>lhs</span>, <span class='va'>rhs</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>is_assignment</span><span class='op'>(</span><span class='va'>parse_tree</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>lhs</th>
-      <td><p>An expression that returns a logical value, or an assignment to an
-expression which returns a logical.</p></td>
-    </tr>
-    <tr>
-      <th>rhs</th>
-      <td><p>A pair of expressions separated by a colon (<code><a href='https://rdrr.io/r/base/Colon.html'>:</a></code>).</p></td>
+      <th>parse_tree</th>
+      <td><p>An unevaluated expression as a list</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A logical</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
