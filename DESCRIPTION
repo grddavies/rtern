@@ -1,5 +1,5 @@
 Package: rtern
-Title: A C-like ternary conditional operator for R
+Title: A C-like Conditional Ternary Operator for R
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Gethin",
@@ -15,8 +15,7 @@ Description: It brings a C-like ternary conditional operator using `?` and `:` t
     However we're sure you'll agree that once you can do the same using only...
         `x <- (y > 1 ? 1 : 2)`
     ...your models will converge faster, ROC AUC will approach 1 and Hadley Wickham will be starring your repos.
-    The only downside is that the base functionality of `?` and `:`. 
-    Who needs sequences and help files? Not you champ.
+    The only downside is that the base functionality of `?`. Who needs help files? Not you, champ.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
