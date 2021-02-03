@@ -1,16 +1,32 @@
 Package: rtern
-Title: What the Package Does (One Line, Title Case)
+Title: A C-like ternary conditional operator for R
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Gethin",
+           family = "Davies",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to
-    pick a license
+           email = "grd.davies@gmail.com")
+Description: It brings a C-like ternary conditional operator using `?` and `:` to R.
+    This groundbreaking spoonful of syntactic sugar will supercharge your workflow and see you bubble to the top of Kaggle leaderboards.
+    Yes, we'll admit that it is possible to perform conditional assignment in base R multiple ways: 
+        `x <- if(y > 1) 1 else 2`
+    and the vectorized form
+        `x <- ifelse(y > 1, 1, 2)`
+    However we're sure you'll agree that once you can do the same using only...
+        `x <- (y > 1 ? 1 : 2)`
+    ...your models will converge faster, ROC AUC will approach 1 and Hadley Wickham will be starring your repos.
+    The only downside is that the base functionality of `?` and `:`. 
+    Who needs sequences and help files? Not you champ.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
+URL: https://github.com/hedscan/rtern
+BugReports: https://github.com/hedscan/rtern/issues
+Suggests: 
+    covr,
+    testthat (>= 3.0.0),
+    spelling
+Config/testthat/edition: 3
+Language: en-US
