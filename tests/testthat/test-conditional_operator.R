@@ -1,4 +1,4 @@
-devtools::load_all()
+library(rtern)
 
 test_that("`?` evaluates simple TRUE cases correctly", {
   expect_equal(TRUE ? 1 : 2, 1)
@@ -49,9 +49,37 @@ test_that("`?` can be used in `<-` assignment when fed truthy expressions", {
   expect_equal(x, 1)
   y <- 1 ? 2 : 3
   expect_equal(y, 2)
-  x <- TRUE
-  y <- 1
   # TRUE == 1 is truthy
   z <- TRUE == 1 ? "foo" : NULL
   expect_equal(z, "foo")
+})
+
+test_that("`?` can be used in `<-` assignment when fed falsy expressions", {
+  x <- FALSE ? 1 : 2
+  expect_equal(x, 2)
+  y <- 0 ? 2 : 3
+  expect_equal(y, 3)
+  z <- TRUE == !1 ? "foo" : "bar"
+  expect_equal(z, "bar")
+})
+
+test_that("`?` can be used in `=` assignment when fed truthy expressions", {
+  # skip('not yet implemented')
+  x = TRUE ? 1 : 2
+  expect_equal(x, 1)
+  y = 1 ? 2 : 3
+  expect_equal(y, 2)
+  # TRUE == 1 is truthy
+  z = TRUE == 1 ? "foo" : NULL
+  expect_equal(z, "foo")
+})
+
+test_that("`?` can be used in `=` assignment when fed falsy expressions", {
+  # skip('not yet implemented')
+  x = FALSE ? 1 : 2
+  expect_equal(x, 2)
+  y = 0 ? 2 : 3
+  expect_equal(y, 3)
+  z = TRUE == !1 ? "foo" : "bar"
+  expect_equal(z, "bar")
 })

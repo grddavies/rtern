@@ -2,16 +2,29 @@
 #'
 #' Who has time for if/else?
 #'
+#' @param lhs An expression that returns a logical value, or an assignment to an
+#'     expression which returns a logical.
+#' @param rhs A pair of expressions separated by a colon (`:`).
+#'
+#' @export
 `?` <- function(lhs, rhs) {
-  xs <- as.list(substitute(lhs, environment()))
-  if (xs[[1]] == as.name("<-")) lhs <- eval(xs[[3]])
+  lexpr <- substitute(lhs, environment())
+  rexpr <- substitute(rhs, environment())
+  lhs_tree <- as.list(lexpr)
+
+  if (is_assignment(lhs_tree)) {
+    lexpr <- eval(lhs_tree[[3]])
+  }
+
+
   r <- eval(sapply(
-    strsplit(deparse(substitute(rhs, environment())), ":"),
+    strsplit(deparse(rexpr), ":"),
     function(e) parse(text = e)
   )[[2 - as.logical(lhs)]])
-  if (xs[[1]] == as.name("<-")) {
-    xs[[3]] <- r
-    eval.parent(as.call(xs))
+
+  if (is_assignment(lhs_tree)) {
+    lhs_tree[[3]] <- r
+    eval.parent(as.call(lhs_tree))
   } else {
     r
   }

@@ -6,6 +6,12 @@
 \usage{
 `?`(lhs, rhs)
 }
+\arguments{
+\item{lhs}{An expression that returns a logical value, or an assignment to an
+expression which returns a logical.}
+
+\item{rhs}{A pair of expressions separated by a colon (\code{:}).}
+}
 \description{
 Who has time for if/else?
 }
