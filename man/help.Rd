@@ -7,11 +7,35 @@
 `?`(lhs, rhs)
 }
 \arguments{
-\item{lhs}{An expression that returns a logical value, or an assignment to an
-expression which returns a logical.}
+\item{lhs}{A logical expression  or logical vector, or an assignment to an
+a logical.}
 
 \item{rhs}{A pair of expressions separated by a colon (\code{:}).}
 }
+\value{
+One of the values passed to the rhs, depending on truthiness of the lhs
+}
 \description{
 Who has time for if/else?
+}
+\examples{
+# Conditional evaluation
+4 > 3 ? "it_was_true" : "it_was_false"
+#> "it_was_true"
+
+FALSE ? "it_was_true" : "it_was_false"
+#> "it_was_false"
+
+# Vectorised evaluation
+c(4, 2) < 3 ? "it_was_true" : "it_was_false"
+#> "it_was_false" "it_was_true"
+
+# Conditional assignment
+x <- 4 > 3 ? "it_was_true" : "it_was_false"
+x
+#> "it_was_true"
+
+y = 3 > 4 ? "it_was_true" : "it_was_false"
+y
+#> "it_was_false"
 }
