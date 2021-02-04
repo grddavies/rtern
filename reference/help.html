@@ -124,8 +124,8 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>lhs</th>
-      <td><p>An expression that returns a logical value, or an assignment to an
-expression which returns a logical.</p></td>
+      <td><p>A logical expression  or logical vector, or an assignment to an
+a logical.</p></td>
     </tr>
     <tr>
       <th>rhs</th>
@@ -133,7 +133,31 @@ expression which returns a logical.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
+    <p>One of the values passed to the rhs, depending on truthiness of the lhs</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># Conditional evaluation</span>
+<span class='fl'>4</span> <span class='op'>&gt;</span> <span class='fl'>3</span> <span class='op'>?</span> <span class='st'>"it_was_true"</span> <span class='op'>:</span> <span class='st'>"it_was_false"</span>
+</div><div class='output co'>#&gt; [1] "it_was_true"</div><div class='input'><span class='co'>#&gt; "it_was_true"</span>
+
+<span class='cn'>FALSE</span> <span class='op'>?</span> <span class='st'>"it_was_true"</span> <span class='op'>:</span> <span class='st'>"it_was_false"</span>
+</div><div class='output co'>#&gt; [1] "it_was_false"</div><div class='input'><span class='co'>#&gt; "it_was_false"</span>
+
+<span class='co'># Vectorised evaluation</span>
+<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>3</span> <span class='op'>?</span> <span class='st'>"it_was_true"</span> <span class='op'>:</span> <span class='st'>"it_was_false"</span>
+</div><div class='output co'>#&gt; [1] "it_was_false" "it_was_true" </div><div class='input'><span class='co'>#&gt; "it_was_false" "it_was_true"</span>
+
+<span class='co'># Conditional assignment</span>
+<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>4</span> <span class='op'>&gt;</span> <span class='fl'>3</span> <span class='op'>?</span> <span class='st'>"it_was_true"</span> <span class='op'>:</span> <span class='st'>"it_was_false"</span>
+<span class='va'>x</span>
+</div><div class='output co'>#&gt; [1] "it_was_true"</div><div class='input'><span class='co'>#&gt; "it_was_true"</span>
+
+<span class='va'>y</span> <span class='op'>=</span> <span class='fl'>3</span> <span class='op'>&gt;</span> <span class='fl'>4</span> <span class='op'>?</span> <span class='st'>"it_was_true"</span> <span class='op'>:</span> <span class='st'>"it_was_false"</span>
+<span class='va'>y</span>
+</div><div class='output co'>#&gt; [1] "it_was_false"</div><div class='input'><span class='co'>#&gt; "it_was_false"</span>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
