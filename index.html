@@ -80,14 +80,22 @@
 <a href="#rtern" class="anchor"></a>rtern</h1></div>
 <!-- badges: start -->
 
+<div id="overview" class="section level2">
+<h2 class="hasAnchor">
+<a href="#overview" class="anchor"></a>Overview</h2>
 <p><code>rtern</code> brings a C-like ternary conditional operator using <code><a href="reference/?.html">?</a></code> and <code><a href="https://rdrr.io/r/base/Colon.html">:</a></code> to R.</p>
 <p>This groundbreaking spoonful of syntactic sugar will supercharge your workflow and see you bubble to the top of Kaggle leaderboards.</p>
-<p>Yes, we know that it is possible to perform conditional assignment in base R multiple ways:<br><code>r  x &lt;- if(y &gt; 1) 1 else 2</code><br>
-and the vectorized form…<br><code>r   x &lt;- ifelse(y &gt; 1, 1, 2)</code><br>
+<p>Yes, we know that it is possible to perform conditional assignment in base R multiple ways:<br><code>r  x &lt;- if(y &gt; 1) 1 else 2  # vectorized form:  x &lt;- ifelse(y &gt; 1, 1, 2)</code><br>
 However we’re sure you’ll agree that once you can do the same using only…<br><code>r  x &lt;- y &gt; 1 ? 1 : 2</code><br>
 …your models will converge faster, ROC AUC will approach 1 and Hadley Wickham will be starring your repos.</p>
-<p>The only downside is that this masks the base functionality of <code><a href="reference/?.html">?</a></code> in R.</p>
+<p>The only downsides are that your linter won’t like it and that this masks the base functionality of <code><a href="reference/?.html">?</a></code> in R.</p>
 <p><em>Who needs help files? Not you, champ.</em></p>
+</div>
+<div id="why" class="section level2">
+<h2 class="hasAnchor">
+<a href="#why" class="anchor"></a>Why?</h2>
+<p><code>rtern</code> is a lighthearted project for practicing package development and nonstandard evaluation in R. The <code><a href="reference/?.html">?</a></code> operator implementation borrows heavily from <a href="https://stackoverflow.com/a/8790269">this stackexchange answer</a>.</p>
+</div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
@@ -95,6 +103,10 @@ However we’re sure you’ll agree that once you can do the same using only…<
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rtern"</span><span class="op">)</span></code></pre></div>
 <p>…sorry</p>
+<p>Instead you can install from github with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"hedscan/rtern"</span><span class="op">)</span></code></pre></div>
 </div>
 </div>
   </div>
