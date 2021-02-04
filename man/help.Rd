@@ -4,7 +4,7 @@
 \alias{?}
 \title{Conditional (Ternary) Operator}
 \usage{
-`?`(lhs, rhs)
+condition ? val_if_true : val_if_false
 }
 \arguments{
 \item{lhs}{A logical expression  or logical vector, or an assignment to an

@@ -2,6 +2,9 @@
 #'
 #' Who has time for if/else?
 #'
+#' @usage
+#' condition ? val_if_true : val_if_false
+#'
 #' @param lhs A logical expression  or logical vector, or an assignment to an
 #'     a logical.
 #' @param rhs A pair of expressions separated by a colon (`:`).
