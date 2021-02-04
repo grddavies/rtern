@@ -2,13 +2,11 @@
 #'
 #' Who has time for if/else?
 #'
-#' @usage
-#' condition ? val_if_true : val_if_false
+#' @usage lhs ? rhs
 #'
-#' @param lhs A logical expression  or logical vector, or an assignment to an
-#'     a logical.
-#' @param rhs A pair of expressions separated by a colon (`:`).
-#' @return One of the values passed to the rhs, depending on truthiness of the lhs
+#' @param lhs A logical expression  or logical vector.
+#' @param rhs Two values separated by a colon (`:`).
+#' @return One of the values in `rhs`, depending on truthiness of `lhs`.
 #' @examples
 #' # Conditional evaluation
 #' 4 > 3 ? "it_was_true" : "it_was_false"

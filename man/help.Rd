@@ -4,16 +4,15 @@
 \alias{?}
 \title{Conditional (Ternary) Operator}
 \usage{
-condition ? val_if_true : val_if_false
+lhs ? rhs
 }
 \arguments{
-\item{lhs}{A logical expression  or logical vector, or an assignment to an
-a logical.}
+\item{lhs}{A logical expression  or logical vector.}
 
-\item{rhs}{A pair of expressions separated by a colon (\code{:}).}
+\item{rhs}{Two values separated by a colon (\code{:}).}
 }
 \value{
-One of the values passed to the rhs, depending on truthiness of the lhs
+One of the values in \code{rhs}, depending on truthiness of \code{lhs}.
 }
 \description{
 Who has time for if/else?
