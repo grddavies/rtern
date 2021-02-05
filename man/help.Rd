@@ -4,7 +4,7 @@
 \alias{?}
 \title{Conditional (Ternary) Operator}
 \usage{
-`?`(lhs, rhs)
+lhs ? rhs
 }
 \arguments{
 \item{lhs}{A logical expression, vector or matrix.}
@@ -12,7 +12,7 @@
 \item{rhs}{A pair of values separated by a colon (\code{:}).}
 }
 \value{
-One of the values passed to the rhs, depending on truthiness of the lhs
+One of the values in \code{rhs}, depending on the truthiness of \code{lhs}.
 }
 \description{
 Who has time for if/else?
