@@ -90,7 +90,6 @@ test_that("`?` can be passed a logical vector", {
 })
 
 test_that("`?` can be passed a logical matrix", {
-  skip("not yet implemented")
   X <- matrix(rep(c(TRUE, FALSE, TRUE), 3), ncol = 3, byrow = TRUE)
   Y <- matrix(rep(c("boof", "foob", "boof"), 3), ncol = 3, byrow = TRUE)
   expect_equal(X ? "boof" : "foob", Y)
@@ -100,5 +99,21 @@ test_that("`?` statements can be chained with brackets", {
   skip("not yet implemented")
   x <- FALSE ? 1 : (FALSE ? 2 : (TRUE ? 3 : 4))
   expect_equal(x, 3)
+})
+
+test_that("`?` can handle string values with colons in", {
+  skip("not yet implemented")
+  x <- FALSE ? "value:1" : "value:2"
+  expect_equal(x, "value:2")
+  y <- TRUE ? "value:1" : "value:2"
+  expect_equal(y, "value:1")
+})
+
+test_that("`?` can handle function calls with colons in", {
+  skip("not yet implemented")
+  x <- FALSE ? base::mean(c(1, 2, 3)) : base::mean(c(4, 5, 6))
+  expect_equal(x, 5)
+  y <- TRUE ? base::mean(c(1, 2, 3)) : base::mean(c(4, 5, 6))
+  expect_equal(x, 2)
 })
 
