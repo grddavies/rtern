@@ -1,6 +1,6 @@
 Package: rtern
 Title: A C-like Conditional Ternary Operator for R
-Version: 0.0.1
+Version: 0.0.2
 Authors@R: 
     person(given = "Gethin",
            family = "Davies",
