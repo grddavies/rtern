@@ -46,5 +46,5 @@ Instead you can install from github with:
 
 ```r
 # install.packages("devtools")
-devtools::install_github("hedscan/rtern")
+devtools::install_github("grddavies/rtern")
 ```
