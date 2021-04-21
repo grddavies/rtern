@@ -32,12 +32,14 @@
 `?` <- function(lhs, rhs) {
   lexpr <- substitute(lhs, environment())
   rexpr <- substitute(rhs, environment())
-  # We listify `lexpr` to inspect the syntax tree
-  # If it is an assignment, we evluate the conditional (3rd list element)
+
+  # If no rhs passed, call help on lhs to restore the natural behaviour of `?`
+  if (missing(rexpr)) return(help(as.character(lexpr)))
+  else if (rexpr[[1]] != as.name(":")) stop("RHS WRONG")
+
+  # If lexpr an assignment, we evaluate the conditional (3rd element)
   lhs_tree <- as.list(lexpr)
-  if (is_assignment(lhs_tree)) {
-    lhs <- eval(lhs_tree[[3]])
-  }
+  if (is_assignment(lhs_tree)) lhs <- eval(lexpr[[3]])
 
   # We split the rhs on ":" and parse the values either side
   # TODO: use RE to separate only on colon between values
@@ -58,8 +60,8 @@
   # If `lhs` was assignment we replace the condition with the result `r` in the
   # original lhs syntax tree, and call in the parent environment
   if (is_assignment(lhs_tree)) {
-    lhs_tree[[3]] <- r
-    eval.parent(as.call(lhs_tree))
+    lexpr[[3]] <- r
+    eval.parent(lexpr)
   } else {
     # otherwise we return the result
     r
