@@ -1,0 +1,12 @@
+# rtern 0.1.0
+
+## New features
+
+- Multiple ternary operator statements can be chained together
+
+- Added a `NEWS.md` file to track changes to the package.
+
+## Bug fixes
+
+- Fixed errors when RHS values are strings containing colons or functions under
+  namespaces
