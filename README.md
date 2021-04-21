@@ -36,7 +36,7 @@ _Who needs help files? Not you, champ._
 
 ## Why?
 
-`rtern` is a lighthearted project for practicing package development and nonstandard evaluation in R. The `?` operator implementation borrows heavily from [this stackexchange answer](https://stackoverflow.com/a/8790269).
+`rtern` is a lighthearted project for practicing package development and nonstandard evaluation in R. The `?` operator implementation borrows heavily from [this Stack Exchange answer](https://stackoverflow.com/a/8790269).
 
 ## Installation
 
@@ -48,7 +48,7 @@ install.packages("rtern")
 
 ...sorry
 
-Instead you can install from github with:
+Instead you can install from GitHub with:
 
 ```r
 # install.packages("devtools")

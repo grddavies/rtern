@@ -9,7 +9,7 @@ lhs ? rhs
 \arguments{
 \item{lhs}{A logical expression, vector or matrix.}
 
-\item{rhs}{A pair of values separated by a colon eg \code{value_if_true : value_if_false}.}
+\item{rhs}{A pair of values separated by a colon i.e. \code{value_if_true : value_if_false}.}
 }
 \value{
 One of the values in \code{rhs}, depending on the truthiness of \code{lhs}.

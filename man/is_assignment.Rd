@@ -7,13 +7,14 @@
 is_assignment(parse_tree)
 }
 \arguments{
-\item{parse_tree}{An unevaluated expression as a list}
+\item{parse_tree}{An un-evaluated expression as a list}
 }
 \value{
 A logical
 }
 \description{
 \ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+
 Takes an expression that has been cast to a list and returns true if using
 left-assignment with either \verb{<-} or \code{=}
 }
