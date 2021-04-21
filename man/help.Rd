@@ -29,12 +29,19 @@ FALSE ? "it_was_true" : "it_was_false"
 c(4, 2) < 3 ? "it_was_true" : "it_was_false"
 # > "it_was_false" "it_was_true"
 
-# Conditional assignment
+# Conditional assignment with `<-`
 x <- 4 > 3 ? "it_was_true" : "it_was_false"
 x
 # > "it_was_true"
 
+# Conditional assignment with `=`
 y = 3 > 4 ? "it_was_true" : "it_was_false"
 y
 # > "it_was_false"
+
+# Chaining `?` statements
+z <- FALSE ? "true" : (FALSE ? "false,true" : (TRUE ? "false,false,true" : "all false"))
+z
+# > "false,false,true"
+
 }

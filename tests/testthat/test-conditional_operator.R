@@ -96,13 +96,18 @@ test_that("`?` can be passed a logical matrix", {
 })
 
 test_that("`?` statements can be chained with brackets", {
-  skip("not yet implemented")
+  expect_equal(FALSE ? 1 : (FALSE ? 2 : (TRUE ? 3 : 4)), 3)
   x <- FALSE ? 1 : (FALSE ? 2 : (TRUE ? 3 : 4))
   expect_equal(x, 3)
 })
 
+test_that("`?` statements can be chained without brackets", {
+  expect_equal(FALSE ? 1 : FALSE ? 2 : TRUE ? 3 : 4, 3)
+  z <- FALSE ? "true" : (FALSE ? "false,true" : (TRUE ? "false,false,true" : "all false"))
+  expect_equal(z, "false,false,true")
+})
+
 test_that("`?` can handle string values with colons in", {
-  skip("not yet implemented")
   x <- FALSE ? "value:1" : "value:2"
   expect_equal(x, "value:2")
   y <- TRUE ? "value:1" : "value:2"
@@ -110,10 +115,20 @@ test_that("`?` can handle string values with colons in", {
 })
 
 test_that("`?` can handle function calls with colons in", {
-  skip("not yet implemented")
   x <- FALSE ? base::mean(c(1, 2, 3)) : base::mean(c(4, 5, 6))
   expect_equal(x, 5)
   y <- TRUE ? base::mean(c(1, 2, 3)) : base::mean(c(4, 5, 6))
-  expect_equal(x, 2)
+  expect_equal(y, 2)
+})
+
+test_that("`?` throws an error in the absence of a colon in RHS", {
+  expect_error(
+    6 < 3 ? TRUE,
+    regexp = "Colon `:` operator missing from right hand of expression"
+  )
+  expect_error(
+    {myvar <- c(TRUE, FALSE) ? base::mean(c(1, 2, 3))},
+    regexp = "Colon `:` operator missing from right hand of expression"
+  )
 })
 
