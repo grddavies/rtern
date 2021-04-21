@@ -9,7 +9,7 @@
 
 ## Overview
 
-`rtern` brings a C-like ternary conditional operator using `?` and `:` to R.
+`rtern` brings a C-like conditional ternary operator using `?` and `:` to R.
 
 This groundbreaking spoonful of syntactic sugar will supercharge your workflow and see you bubble to the top of Kaggle leaderboards.
 
