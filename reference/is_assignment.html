@@ -40,7 +40,9 @@
 
 
 <meta property="og:title" content="Check if an expression is an assignment — is_assignment" />
-<meta property="og:description" content="Check if an expression is an assignment" />
+<meta property="og:description" content="
+Takes an expression that has been cast to a list and returns true if using
+left-assignment with either &amp;lt;- or =" />
 
 
 
@@ -72,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">rtern</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -114,7 +116,9 @@
     </div>
 
     <div class="ref-description">
-    <p>Check if an expression is an assignment</p>
+    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#experimental'><img src='figures/lifecycle-experimental.svg' alt='[Experimental]' /></a>
+Takes an expression that has been cast to a list and returns true if using
+left-assignment with either <code>&lt;-</code> or <code><a href='https://rdrr.io/r/base/assignOps.html'>=</a></code></p>
     </div>
 
     <pre class="usage"><span class='fu'>is_assignment</span><span class='op'>(</span><span class='va'>parse_tree</span><span class='op'>)</span></pre>
