@@ -1,12 +1,29 @@
-#' Conditional (Ternary) Operator
+#' Succinct conditional evaluation and assignment
 #'
-#' `r lifecycle::badge("experimental")`
+#' @description
+#' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
+#'
+#' \code{?} is an in-line if/else operator
+#'
+#' @details
+#' The syntax for ? is as follows:
+#'
+#' \code{condition ? value_if_true : value_if_false}
+#'
+#' The condition is evaluated TRUE or FALSE as a Boolean expression.
+#' On the basis of the evaluation of the Boolean condition, the entire expression
+#' returns `value_if_true` if `condition` is true, but `value_if_false` otherwise.
+#' In the case where the condition is a vector/matrix of Boolean values, the
+#' function returns a vector/matrix where each element is either `value_if_true`
+#' or `value_if_false` based on the truthiness of the elements of the logical
+#' matrix on the left-hand side.
+#'
 #' Who has time for if/else?
 #'
 #' @usage lhs ? rhs
 #'
 #' @param lhs A logical expression, vector or matrix.
-#' @param rhs A pair of values separated by a colon (`:`).
+#' @param rhs A pair of values separated by a colon eg `value_if_true : value_if_false`.
 #' @return One of the values in `rhs`, depending on the truthiness of `lhs`.
 #'
 #' @examples

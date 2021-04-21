@@ -2,20 +2,36 @@
 % Please edit documentation in R/conditional_operator.R
 \name{?}
 \alias{?}
-\title{Conditional (Ternary) Operator}
+\title{Succinct conditional evaluation and assignment}
 \usage{
 lhs ? rhs
 }
 \arguments{
 \item{lhs}{A logical expression, vector or matrix.}
 
-\item{rhs}{A pair of values separated by a colon (\code{:}).}
+\item{rhs}{A pair of values separated by a colon eg \code{value_if_true : value_if_false}.}
 }
 \value{
 One of the values in \code{rhs}, depending on the truthiness of \code{lhs}.
 }
 \description{
-\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+\Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
+
+\code{?} is an in-line if/else operator
+}
+\details{
+The syntax for ? is as follows:
+
+\code{condition ? value_if_true : value_if_false}
+
+The condition is evaluated TRUE or FALSE as a Boolean expression.
+On the basis of the evaluation of the Boolean condition, the entire expression
+returns \code{value_if_true} if \code{condition} is true, but \code{value_if_false} otherwise.
+In the case where the condition is a vector/matrix of Boolean values, the
+function returns a vector/matrix where each element is either \code{value_if_true}
+or \code{value_if_false} based on the truthiness of the elements of the logical
+matrix on the left-hand side.
+
 Who has time for if/else?
 }
 \examples{
