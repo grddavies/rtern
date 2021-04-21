@@ -23,7 +23,7 @@
 #' @usage lhs ? rhs
 #'
 #' @param lhs A logical expression, vector or matrix.
-#' @param rhs A pair of values separated by a colon eg `value_if_true : value_if_false`.
+#' @param rhs A pair of values separated by a colon i.e. `value_if_true : value_if_false`.
 #' @return One of the values in `rhs`, depending on the truthiness of `lhs`.
 #'
 #' @examples

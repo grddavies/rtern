@@ -6,9 +6,7 @@ Authors@R:
            family = "Davies",
            role = c("aut", "cre"),
            email = "grd.davies@gmail.com")
-Description: It brings a C-like ternary conditional operator using `?` and `:` to R.
-    This groundbreaking spoonful of syntactic sugar will supercharge your workflow and see you bubble to the top of Kaggle leaderboards.
-    The only downside is that it masks the base functionality of `?`. Who needs help files? Not you, champ.
+Description: Implements succinct conditional statements in R.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -23,4 +21,5 @@ Suggests:
 Config/testthat/edition: 3
 Language: en-US
 Imports: 
+    utils,
     lifecycle
