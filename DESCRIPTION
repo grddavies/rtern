@@ -1,6 +1,6 @@
 Package: rtern
 Title: A C-like Conditional Ternary Operator for R
-Version: 0.0.2
+Version: 0.1.0
 Authors@R: 
     person(given = "Gethin",
            family = "Davies",
@@ -8,7 +8,7 @@ Authors@R:
            email = "grd.davies@gmail.com")
 Description: It brings a C-like ternary conditional operator using `?` and `:` to R.
     This groundbreaking spoonful of syntactic sugar will supercharge your workflow and see you bubble to the top of Kaggle leaderboards.
-    The only downside is that the base functionality of `?`. Who needs help files? Not you, champ.
+    The only downside is that it masks the base functionality of `?`. Who needs help files? Not you, champ.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -22,3 +22,5 @@ Suggests:
     spelling
 Config/testthat/edition: 3
 Language: en-US
+Imports: 
+    lifecycle

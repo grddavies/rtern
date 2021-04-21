@@ -1,5 +1,6 @@
 #' Conditional (Ternary) Operator
 #'
+#' `r lifecycle::badge("experimental")`
 #' Who has time for if/else?
 #'
 #' @usage lhs ? rhs
@@ -10,41 +11,51 @@
 #'
 #' @examples
 #' # Conditional evaluation
-#' 4 > 3 ? "it_was_true" : "it_was_false"
+#' 4 > 3 ? "it_was_true":"it_was_false"
 #' # > "it_was_true"
 #'
-#' FALSE ? "it_was_true" : "it_was_false"
+#' FALSE ? "it_was_true":"it_was_false"
 #' # > "it_was_false"
 #'
 #' # Vectorised evaluation
-#' c(4, 2) < 3 ? "it_was_true" : "it_was_false"
+#' c(4, 2) < 3 ? "it_was_true":"it_was_false"
 #' # > "it_was_false" "it_was_true"
 #'
-#' # Conditional assignment
-#' x <- 4 > 3 ? "it_was_true" : "it_was_false"
+#' # Conditional assignment with `<-`
+#' x <- 4 > 3 ? "it_was_true":"it_was_false"
 #' x
 #' # > "it_was_true"
 #'
-#' y = 3 > 4 ? "it_was_true" : "it_was_false"
+#' # Conditional assignment with `=`
+#' y <- 3 > 4 ? "it_was_true":"it_was_false"
 #' y
 #' # > "it_was_false"
+#'
+#' # Chaining `?` statements
+#' z <- FALSE ? "true":(FALSE ? "false,true":(TRUE ? "false,false,true":"all false"))
+#' z
+#' # > "false,false,true"
+#' @importFrom utils help
 #' @export
 `?` <- function(lhs, rhs) {
   lexpr <- substitute(lhs, environment())
   rexpr <- substitute(rhs, environment())
-  # We listify `lexpr` to inspect the syntax tree
-  # If it is an assignment, we evluate the conditional (3rd list element)
-  lhs_tree <- as.list(lexpr)
-  if (is_assignment(lhs_tree)) {
-    lhs <- eval(lhs_tree[[3]])
+
+  # If no rhs passed, call help on lhs to restore the natural behaviour of `?`
+  if (missing(rexpr)) {
+    return(utils::help(as.character(lexpr)))
+  } else if (rexpr[[1]] != as.name(":")) {
+    stop(
+      "Colon `:` operator missing from right hand of expression"
+    )
   }
 
-  # We split the rhs on ":" and parse the values either side
-  # TODO: use RE to separate only on colon between values
-  rhss <- sapply(
-    strsplit(deparse(rexpr), ":"),
-    function(e) parse(text = e)
-  )
+  # If lexpr an assignment, we evaluate the conditional (3rd element)
+  lhs_tree <- as.list(lexpr)
+  if (is_assignment(lhs_tree)) lhs <- eval(lexpr[[3]])
+
+  # We bypass the original function of `:` and assign its arguments to a vector
+  rhss <- c(rexpr[[2]], rexpr[[3]])
 
   # If `lhs` is scalar, and `rhs` values are vector `ifelse` will only return
   # the first elements of the value vectors. If given a scalar condition, we
@@ -58,8 +69,8 @@
   # If `lhs` was assignment we replace the condition with the result `r` in the
   # original lhs syntax tree, and call in the parent environment
   if (is_assignment(lhs_tree)) {
-    lhs_tree[[3]] <- r
-    eval.parent(as.call(lhs_tree))
+    lexpr[[3]] <- r
+    eval.parent(lexpr)
   } else {
     # otherwise we return the result
     r

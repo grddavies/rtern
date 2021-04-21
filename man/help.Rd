@@ -15,26 +15,33 @@ lhs ? rhs
 One of the values in \code{rhs}, depending on the truthiness of \code{lhs}.
 }
 \description{
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 Who has time for if/else?
 }
 \examples{
 # Conditional evaluation
-4 > 3 ? "it_was_true" : "it_was_false"
+4 > 3 ? "it_was_true":"it_was_false"
 # > "it_was_true"
 
-FALSE ? "it_was_true" : "it_was_false"
+FALSE ? "it_was_true":"it_was_false"
 # > "it_was_false"
 
 # Vectorised evaluation
-c(4, 2) < 3 ? "it_was_true" : "it_was_false"
+c(4, 2) < 3 ? "it_was_true":"it_was_false"
 # > "it_was_false" "it_was_true"
 
-# Conditional assignment
-x <- 4 > 3 ? "it_was_true" : "it_was_false"
+# Conditional assignment with `<-`
+x <- 4 > 3 ? "it_was_true":"it_was_false"
 x
 # > "it_was_true"
 
-y = 3 > 4 ? "it_was_true" : "it_was_false"
+# Conditional assignment with `=`
+y <- 3 > 4 ? "it_was_true":"it_was_false"
 y
 # > "it_was_false"
+
+# Chaining `?` statements
+z <- FALSE ? "true":(FALSE ? "false,true":(TRUE ? "false,false,true":"all false"))
+z
+# > "false,false,true"
 }
