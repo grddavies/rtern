@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Conditional (Ternary) Operator — ? • rtern</title>
+<title>Changelog • rtern</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,7 @@
 
 
 
-<meta property="og:title" content="Conditional (Ternary) Operator — ?" />
-<meta property="og:description" content="
-Who has time for if/else?" />
+<meta property="og:title" content="Changelog" />
 
 
 
@@ -60,7 +58,7 @@ Who has time for if/else?" />
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -112,68 +110,37 @@ Who has time for if/else?" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Conditional (Ternary) Operator</h1>
-    <small class="dont-index">Source: <a href='https://github.com/hedscan/rtern/blob/master/R/conditional_operator.R'><code>R/conditional_operator.R</code></a></small>
-    <div class="hidden name"><code>help.Rd</code></div>
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/hedscan/rtern/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#experimental'><img src='figures/lifecycle-experimental.svg' alt='[Experimental]' /></a>
-Who has time for if/else?</p>
-    </div>
-
-    <pre class="usage"><span class='va'>lhs</span> <span class='op'>?</span> <span class='va'>rhs</span></pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>lhs</th>
-      <td><p>A logical expression, vector or matrix.</p></td>
-    </tr>
-    <tr>
-      <th>rhs</th>
-      <td><p>A pair of values separated by a colon (<code><a href='https://rdrr.io/r/base/Colon.html'>:</a></code>).</p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>One of the values in <code>rhs</code>, depending on the truthiness of <code>lhs</code>.</p>
-
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Conditional evaluation</span>
-<span class='fl'>4</span> <span class='op'>&gt;</span> <span class='fl'>3</span> <span class='op'>?</span> <span class='st'>"it_was_true"</span><span class='op'>:</span><span class='st'>"it_was_false"</span>
-</div><div class='output co'>#&gt; [1] "it_was_true"</div><div class='input'><span class='co'># &gt; "it_was_true"</span>
-
-<span class='cn'>FALSE</span> <span class='op'>?</span> <span class='st'>"it_was_true"</span><span class='op'>:</span><span class='st'>"it_was_false"</span>
-</div><div class='output co'>#&gt; [1] "it_was_false"</div><div class='input'><span class='co'># &gt; "it_was_false"</span>
-
-<span class='co'># Vectorised evaluation</span>
-<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>4</span>, <span class='fl'>2</span><span class='op'>)</span> <span class='op'>&lt;</span> <span class='fl'>3</span> <span class='op'>?</span> <span class='st'>"it_was_true"</span><span class='op'>:</span><span class='st'>"it_was_false"</span>
-</div><div class='output co'>#&gt; [1] "it_was_false" "it_was_true" </div><div class='input'><span class='co'># &gt; "it_was_false" "it_was_true"</span>
-
-<span class='co'># Conditional assignment with `&lt;-`</span>
-<span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fl'>4</span> <span class='op'>&gt;</span> <span class='fl'>3</span> <span class='op'>?</span> <span class='st'>"it_was_true"</span><span class='op'>:</span><span class='st'>"it_was_false"</span>
-<span class='va'>x</span>
-</div><div class='output co'>#&gt; [1] "it_was_true"</div><div class='input'><span class='co'># &gt; "it_was_true"</span>
-
-<span class='co'># Conditional assignment with `=`</span>
-<span class='va'>y</span> <span class='op'>&lt;-</span> <span class='fl'>3</span> <span class='op'>&gt;</span> <span class='fl'>4</span> <span class='op'>?</span> <span class='st'>"it_was_true"</span><span class='op'>:</span><span class='st'>"it_was_false"</span>
-<span class='va'>y</span>
-</div><div class='output co'>#&gt; [1] "it_was_false"</div><div class='input'><span class='co'># &gt; "it_was_false"</span>
-
-<span class='co'># Chaining `?` statements</span>
-<span class='va'>z</span> <span class='op'>&lt;-</span> <span class='cn'>FALSE</span> <span class='op'>?</span> <span class='st'>"true"</span><span class='op'>:</span><span class='op'>(</span><span class='cn'>FALSE</span> <span class='op'>?</span> <span class='st'>"false,true"</span><span class='op'>:</span><span class='op'>(</span><span class='cn'>TRUE</span> <span class='op'>?</span> <span class='st'>"false,false,true"</span><span class='op'>:</span><span class='st'>"all false"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>z</span>
-</div><div class='output co'>#&gt; [1] "false,false,true"</div><div class='input'><span class='co'># &gt; "false,false,true"</span>
-</div></pre>
+    <div id="rtern-010" class="section level1">
+<h1 class="page-header" data-toc-text="0.1.0">
+<a href="#rtern-010" class="anchor"></a>rtern 0.1.0</h1>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li><p>Multiple ternary operator statements can be chained together</p></li>
+<li><p>Added a <code>NEWS.md</code> file to track changes to the package.</p></li>
+</ul>
+</div>
+<div id="bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>Bug fixes</h2>
+<ul>
+<li>Fixed errors when RHS values are strings containing colons or functions under namespaces</li>
+</ul>
+</div>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
+
 </div>
 
 
