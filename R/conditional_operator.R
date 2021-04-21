@@ -1,5 +1,6 @@
 #' Conditional (Ternary) Operator
 #'
+#' `r lifecycle::badge("experimental")`
 #' Who has time for if/else?
 #'
 #' @usage lhs ? rhs

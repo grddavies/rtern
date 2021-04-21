@@ -13,6 +13,8 @@ is_assignment(parse_tree)
 A logical
 }
 \description{
-Check if an expression is an assignment
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
+Takes an expression that has been cast to a list and returns true if using
+left-assignment with either \verb{<-} or \code{=}
 }
 \keyword{internal}

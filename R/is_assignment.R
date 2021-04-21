@@ -1,5 +1,9 @@
 #' Check if an expression is an assignment
 #'
+#' `r lifecycle::badge("experimental")`
+#' Takes an expression that has been cast to a list and returns true if using
+#' left-assignment with either `<-` or `=`
+#'
 #' @param parse_tree An unevaluated expression as a list
 #' @return A logical
 #' @keywords internal
