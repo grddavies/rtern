@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Conditional (Ternary) Operator — ? • rtern</title>
+<title>Succinct conditional evaluation and assignment — ? • rtern</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,9 @@
 
 
 
-<meta property="og:title" content="Conditional (Ternary) Operator — ?" />
+<meta property="og:title" content="Succinct conditional evaluation and assignment — ?" />
 <meta property="og:description" content="
-Who has time for if/else?" />
+? is an in-line if/else operator" />
 
 
 
@@ -112,14 +112,14 @@ Who has time for if/else?" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Conditional (Ternary) Operator</h1>
+    <h1>Succinct conditional evaluation and assignment</h1>
     <small class="dont-index">Source: <a href='https://github.com/hedscan/rtern/blob/master/R/conditional_operator.R'><code>R/conditional_operator.R</code></a></small>
     <div class="hidden name"><code>help.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#experimental'><img src='figures/lifecycle-experimental.svg' alt='[Experimental]' /></a>
-Who has time for if/else?</p>
+    <p><a href='https://lifecycle.r-lib.org/articles/stages.html#experimental'><img src='figures/lifecycle-experimental.svg' alt='[Experimental]' /></a></p>
+<p><code>?</code> is an in-line if/else operator</p>
     </div>
 
     <pre class="usage"><span class='va'>lhs</span> <span class='op'>?</span> <span class='va'>rhs</span></pre>
@@ -133,13 +133,25 @@ Who has time for if/else?</p>
     </tr>
     <tr>
       <th>rhs</th>
-      <td><p>A pair of values separated by a colon (<code><a href='https://rdrr.io/r/base/Colon.html'>:</a></code>).</p></td>
+      <td><p>A pair of values separated by a colon eg <code>value_if_true : value_if_false</code>.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>One of the values in <code>rhs</code>, depending on the truthiness of <code>lhs</code>.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The syntax for ? is as follows:</p>
+<p><code>condition ? value_if_true : value_if_false</code></p>
+<p>The condition is evaluated TRUE or FALSE as a Boolean expression.
+On the basis of the evaluation of the Boolean condition, the entire expression
+returns <code>value_if_true</code> if <code>condition</code> is true, but <code>value_if_false</code> otherwise.
+In the case where the condition is a vector/matrix of Boolean values, the
+function returns a vector/matrix where each element is either <code>value_if_true</code>
+or <code>value_if_false</code> based on the truthiness of the elements of the logical
+matrix on the left-hand side.</p>
+<p>Who has time for if/else?</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Conditional evaluation</span>
