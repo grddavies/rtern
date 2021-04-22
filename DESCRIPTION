@@ -1,19 +1,19 @@
 Package: rtern
-Title: A C-like Conditional Ternary Operator for R
+Title: A Ternary Conditional Operator for R
 Version: 0.1.0
 Authors@R: 
     person(given = "Gethin",
            family = "Davies",
            role = c("aut", "cre"),
            email = "grd.davies@gmail.com")
-Description: Implements succinct conditional statements in R.
+Description: If you like succinct conditional statements use this, else don't.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
+LazyData: false
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
-URL: https://github.com/hedscan/rtern
-BugReports: https://github.com/hedscan/rtern/issues
+URL: https://github.com/grddavies/rtern
+BugReports: https://github.com/grddavies/rtern/issues
 Suggests: 
     covr,
     testthat (>= 3.0.0),

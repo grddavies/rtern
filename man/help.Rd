@@ -15,7 +15,7 @@ lhs ? rhs
 One of the values in \code{rhs}, depending on the truthiness of \code{lhs}.
 }
 \description{
-\Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
+\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#experimental}{\figure{lifecycle-experimental.svg}{options: alt='[Experimental]'}}}{\strong{[Experimental]}}
 
 \code{?} is an in-line if/else operator
 }

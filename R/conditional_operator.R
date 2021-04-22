@@ -1,7 +1,7 @@
 #' Succinct conditional evaluation and assignment
 #'
 #' @description
-#' \Sexpr[results=rd, stage=render]{lifecycle::badge("experimental")}
+#' `r lifecycle::badge("experimental")`
 #'
 #' \code{?} is an in-line if/else operator
 #'

@@ -2,14 +2,14 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/hedscan/rtern/workflows/R-CMD-check/badge.svg)](https://github.com/hedscan/rtern/actions)
+[![R-CMD-check](https://github.com/grddavies/rtern/workflows/R-CMD-check/badge.svg)](https://github.com/grddavies/rtern/actions)
 [![Codecov test coverage](https://codecov.io/gh/hedscan/rtern/branch/master/graph/badge.svg)](https://codecov.io/gh/hedscan/rtern?branch=master)
 
 <!-- badges: end -->
 
 ## Overview
 
-`rtern` brings a C-like conditional ternary operator using `?` and `:` to R.
+`rtern` brings a [conditional ternary operator](https://en.wikipedia.org/wiki/%3F:) using `?` and `:` to R.
 
 This groundbreaking spoonful of syntactic sugar will supercharge your workflow and see you bubble to the top of Kaggle leaderboards.
 
@@ -30,7 +30,7 @@ x <- y > 1 ? 1 : 2
 ...your models will converge faster, ROC AUC will approach 1 and Hadley Wickham will be starring your repos.
 
 The only downsides are that your linter won't like it <s> and that this masks the base functionality of `?` in R </s>.  
- As of v0.1 help files can still be accessed by the `?` operator whilst `rtern` is attached!
+As of v0.1 help files can still be accessed by the `?` operator whilst `rtern` is attached!
 
 _Who needs help files? Not you, champ._
 
