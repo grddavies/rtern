@@ -2,7 +2,7 @@
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/grddavies/rtern/workflows/R-CMD-check/badge.svg)](https://github.com/grddavies/rtern/actions)
+[![R-CMD-check](https://github.com/grddavies/rtern/actions/workflows/check-standard.yaml/badge.svg)](https://github.com/grddavies/rtern/actions/workflows/check-standard.yaml)
 [![Codecov test coverage](https://codecov.io/gh/hedscan/rtern/branch/master/graph/badge.svg)](https://codecov.io/gh/hedscan/rtern?branch=master)
 
 <!-- badges: end -->
