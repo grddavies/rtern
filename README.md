@@ -40,15 +40,13 @@ _Who needs help files? Not you, champ._
 
 ## Installation
 
-You <s>can</s> _can't_ install a released version of rtern from [CRAN](https://CRAN.R-project.org) with:
+You can install the latest released version of rtern from [CRAN](https://CRAN.R-project.org) with:
 
 ```r
 install.packages("rtern")
 ```
 
-...sorry
-
-Instead you can install from GitHub with:
+Or install the development version from GitHub with:
 
 ```r
 # install.packages("devtools")
