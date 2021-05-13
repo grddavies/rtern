@@ -16,7 +16,8 @@ This groundbreaking spoonful of syntactic sugar will supercharge your workflow a
 Yes, we know that it is possible to perform conditional assignment in base R multiple ways:
 
 ```r
-x <- if(y > 1) 1 else 2
+# Using a one-line if/else:
+x <- if (y > 1) 1 else 2
 # vectorized form:
 x <- ifelse(y > 1, 1, 2)
 ```
