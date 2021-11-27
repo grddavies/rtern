@@ -1,4 +1,4 @@
-library(rtern)
+# !diagnostics style=false
 
 test_that("`?` evaluates simple TRUE cases correctly", {
   expect_equal(TRUE ? 1 : 2, 1)
