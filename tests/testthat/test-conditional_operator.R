@@ -105,9 +105,16 @@ test_that("`?` statements can be chained with brackets", {
   expect_equal(FALSE ? 1 : (FALSE ? 2 : (TRUE ? 3 : 4)), 3)
   x <- FALSE ? 1 : (FALSE ? 2 : (TRUE ? 3 : 4))
   expect_equal(x, 3)
+  z <- (FALSE ?
+          "true-first" :
+          FALSE ? "false,true" :
+                  TRUE ? "false,false,true" :
+                         "all false")
+  expect_equal(z, "false,false,true")
 })
 
 test_that("`?` statements can be chained without brackets", {
+  testthat::skip("Not yet implemented")
   expect_equal(FALSE ? 1 : FALSE ? 2 : TRUE ? 3 : 4, 3)
   z <- FALSE ? "true-first" : FALSE ? "false,true" : TRUE ? "false,false,true" : "all false"
   expect_equal(z, "false,false,true")

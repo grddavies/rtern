@@ -52,40 +52,49 @@
 #' z <- FALSE ? "true":(FALSE ? "false,true":(TRUE ? "false,false,true":"all false"))
 #' z
 #' # > "false,false,true"
-#' @importFrom utils help
 #' @export
 `?` <- function(lhs, rhs) {
-  lexpr <- substitute(lhs, environment())
-  rexpr <- substitute(rhs, environment())
+  lhs <- rlang::enquo(lhs)
+  rhs <- rlang::enquo(rhs)
+  lexpr <- rlang::quo_get_expr(lhs)
+  lenv <- rlang::quo_get_env(lhs)
+  rexpr <- rlang::quo_get_expr(rhs)
+  renv <- rlang::quo_get_env(rhs)
 
   # If no rhs passed, call help on lhs to restore the natural behaviour of `?`
   if (missing(rexpr)) {
-    return(utils::help(as.character(lexpr)))
+    return(utils::help(rlang::as_string(lexpr)))
   } else if (rexpr[[1]] != as.name(":")) {
     stop(
       "Colon `:` operator missing from right hand of expression"
     )
   }
 
-  # If lexpr an assignment, we evaluate the conditional (3rd element)
   lhs_tree <- as.list(lexpr)
-  if (is_assignment(lhs_tree)) lhs <- eval(lexpr[[3]])
+  test <- if (is_assignment(lhs_tree)) {
+    # If lexpr an assignment, we evaluate the conditional (3rd element)
+    rlang::eval_tidy(lexpr[[3]], env = lenv)
+  } else {
+    rlang::eval_tidy(lhs)
+  }
 
-  # We bypass the original function of `:` and assign its arguments to a vector
-  rhss <- c(rexpr[[2]], rexpr[[3]])
+  # We extract the arguments to `:` in rhs and use as true/false cases
+  case_t <- rlang::as_quosure(rexpr[[2]], renv)
+  case_f <- rlang::as_quosure(rexpr[[3]], renv)
 
   # If `lhs` is scalar, and `rhs` values are vector `ifelse` will only return
   # the first elements of the value vectors. If given a scalar condition, we
   # want to be able to return the entire value.
-  if (length(lhs) > 1) {
-    r <- ifelse(lhs, eval(rhss[[1]]), eval(rhss[2]))
+  if (length(test) > 1L) {
+    r <- ifelse(test, rlang::eval_tidy(case_t), rlang::eval_tidy(case_f))
   } else {
-    r <- eval(rhss[[2 - as.numeric(lhs)]])
+    r <- if (test) rlang::eval_tidy(case_t) else rlang::eval_tidy(case_f)
   }
 
-  # If `lhs` was assignment we replace the condition with the result `r` in the
-  # original lhs syntax tree, and call in the parent environment
+  # If `lhs` was assignment we replace the conditions with the result `r` in the
+  # lhs syntax tree, and evaluate in the parent environment
   if (is_assignment(lhs_tree)) {
+    # FIXME: this only works when wrapping nested calls to ? in brackets
     lexpr[[3]] <- r
     eval.parent(lexpr)
   } else {
