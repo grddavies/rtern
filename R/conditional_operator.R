@@ -15,8 +15,8 @@
 #' returns `value_if_true` if `condition` is true, but `value_if_false` otherwise.
 #' In the case where the condition is a vector/matrix of Boolean values, the
 #' function returns a vector/matrix where each element is either `value_if_true`
-#' or `value_if_false` based on the truthiness of the elements of the logical
-#' matrix on the left-hand side.
+#' or `value_if_false` based on the truthiness of the elements of the object on
+#' the left-hand side. In these cases the behaviour of `?` mimics \link[base]{ifelse}.
 #'
 #' Who has time for if/else?
 #'

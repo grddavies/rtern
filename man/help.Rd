@@ -29,8 +29,8 @@ On the basis of the evaluation of the Boolean condition, the entire expression
 returns \code{value_if_true} if \code{condition} is true, but \code{value_if_false} otherwise.
 In the case where the condition is a vector/matrix of Boolean values, the
 function returns a vector/matrix where each element is either \code{value_if_true}
-or \code{value_if_false} based on the truthiness of the elements of the logical
-matrix on the left-hand side.
+or \code{value_if_false} based on the truthiness of the elements of the object on
+the left-hand side. In these cases the behaviour of \verb{?} mimics \link[base]{ifelse}.
 
 Who has time for if/else?
 }
