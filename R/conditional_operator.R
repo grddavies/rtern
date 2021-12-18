@@ -64,7 +64,7 @@
   # If no rhs passed, call help on lhs to restore the natural behaviour of `?`
   if (missing(rexpr)) {
     return(utils::help(rlang::as_string(lexpr)))
-  } else if (rexpr[[1]] != as.name(":")) {
+  } else if (rexpr[[1L]] != rlang::as_name(":")) {
     stop(
       "Colon `:` operator missing from right hand of expression"
     )
@@ -73,14 +73,14 @@
   lhs_tree <- as.list(lexpr)
   test <- if (is_assignment(lhs_tree)) {
     # If lexpr an assignment, we evaluate the conditional (3rd element)
-    rlang::eval_tidy(lexpr[[3]], env = lenv)
+    rlang::eval_tidy(lexpr[[3L]], env = lenv)
   } else {
     rlang::eval_tidy(lhs)
   }
 
   # We extract the arguments to `:` in rhs and use as true/false cases
-  case_t <- rlang::as_quosure(rexpr[[2]], renv)
-  case_f <- rlang::as_quosure(rexpr[[3]], renv)
+  case_t <- rlang::as_quosure(rexpr[[2L]], renv)
+  case_f <- rlang::as_quosure(rexpr[[3L]], renv)
 
   # If `lhs` is scalar, and `rhs` values are vector `ifelse` will only return
   # the first elements of the value vectors. If given a scalar condition, we
