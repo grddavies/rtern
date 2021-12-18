@@ -165,6 +165,8 @@ test_that("`?` can be used in assignments in function body", {
 })
 
 test_that("`?` can be used to call utils::help while rtern is loaded", {
-  expect_s3_class(?data.frame, "help_files_with_topic")
-  expect_s3_class(?base::data.frame, "help_files_with_topic")
+  actual <- ?data.frame
+  expect_s3_class(actual, "help_files_with_topic")
+  expect_equal(attr(actual, "topic"), "data.frame")
+  expect_s3_class(?`for`, "help_files_with_topic")
 })
