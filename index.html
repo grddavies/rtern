@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">rtern</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -52,7 +48,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/grddavies/rtern/">
+  <a href="https://github.com/grddavies/rtern/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -69,42 +65,42 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="rtern" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#rtern" class="anchor"></a>rtern</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="rtern">rtern<a class="anchor" aria-label="anchor" href="#rtern"></a>
+</h1></div>
 <!-- badges: start -->
 
 <!-- badges: end -->
-<div id="overview" class="section level2">
-<h2 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h2>
-<p><code>rtern</code> brings a <a href="https://en.wikipedia.org/wiki/%3F:">conditional ternary operator</a> using <code><a href="reference/?.html">?</a></code> and <code><a href="https://rdrr.io/r/base/Colon.html">:</a></code> to R.</p>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
+<p><code>rtern</code> brings a <a href="https://en.wikipedia.org/wiki/%3F:" class="external-link">conditional ternary operator</a> using <code>?</code> and <code>:</code> to R.</p>
 <p>This groundbreaking spoonful of syntactic sugar will supercharge your workflow and see you bubble to the top of Kaggle leaderboards.</p>
 <p>Yes, we know that it is possible to perform conditional assignment in base R multiple ways:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Using a one-line if/else:</span>
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="kw">if</span> <span class="op">(</span><span class="va">y</span> <span class="op">&gt;</span> <span class="fl">1</span><span class="op">)</span> <span class="fl">1</span> <span class="kw">else</span> <span class="fl">2</span>
 <span class="co"># vectorized form:</span>
-<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">y</span> <span class="op">&gt;</span> <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="va">y</span> <span class="op">&gt;</span> <span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <p>However we’re sure you’ll agree that once you can do the same using only…</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">y</span> <span class="op">&gt;</span> <span class="fl">1</span> <span class="op">?</span> <span class="fl">1</span> <span class="op">:</span> <span class="fl">2</span></code></pre></div>
 <p>…your models will converge faster, ROC AUC will approach 1 and Hadley Wickham will be starring your repos.</p>
-<p>The only downsides are that your linter won’t like it <s> and that this masks the base functionality of <code><a href="reference/?.html">?</a></code> in R </s>.<br>
-As of v0.1 help files can still be accessed by the <code><a href="reference/?.html">?</a></code> operator whilst <code>rtern</code> is attached!</p>
+<p>The only downsides are that your linter won’t like it <s> and that this masks the base functionality of <code>?</code> in R </s>.<br>
+As of v0.1 help files can still be accessed by the <code>?</code> operator whilst <code>rtern</code> is attached!</p>
 <p><em>Who needs help files? Not you, champ.</em></p>
 </div>
-<div id="why" class="section level2">
-<h2 class="hasAnchor">
-<a href="#why" class="anchor"></a>Why?</h2>
-<p><code>rtern</code> is a lighthearted project for practicing package development and nonstandard evaluation in R. The <code><a href="reference/?.html">?</a></code> operator implementation borrows heavily from <a href="https://stackoverflow.com/a/8790269">this Stack Exchange answer</a>.</p>
+<div class="section level2">
+<h2 id="why">Why?<a class="anchor" aria-label="anchor" href="#why"></a>
+</h2>
+<p><code>rtern</code> is a lighthearted project for practicing package development and nonstandard evaluation in R. The <code>?</code> operator implementation borrows heavily from <a href="https://stackoverflow.com/a/8790269" class="external-link">this Stack Exchange answer</a>.</p>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the latest released version of rtern from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the latest released version of rtern from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rtern"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"rtern"</span><span class="op">)</span></code></pre></div>
 <p>Or install the development version from GitHub with:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
@@ -115,47 +111,57 @@ As of v0.1 help files can still be accessed by the <code><a href="reference/?.ht
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=rtern">https://​cloud.r-project.org/​package=rtern</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/grddavies/rtern/">https://​github.com/​grddavies/​rtern/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/grddavies/rtern/issues">https://​github.com/​grddavies/​rtern/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=rtern" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/grddavies/rtern/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/grddavies/rtern/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing rtern</a></li>
+</ul>
+</div>
+
 <div class="developers">
-<h2>Developers</h2>
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Gethin Davies <br><small class="roles"> Author, maintainer </small>  </li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/grddavies/rtern/actions/workflows/check-standard.yaml"><img src="https://github.com/grddavies/rtern/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://codecov.io/gh/hedscan/rtern?branch=master"><img src="https://codecov.io/gh/hedscan/rtern/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/grddavies/rtern/actions/workflows/check-standard.yaml" class="external-link"><img src="https://github.com/grddavies/rtern/actions/workflows/check-standard.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://codecov.io/gh/grddavies/rtern?branch=master" class="external-link"><img src="https://codecov.io/gh/grddavies/rtern/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
-</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Gethin Davies.</p>
+  <p></p>
+<p>Developed by Gethin Davies.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -163,6 +169,8 @@ As of v0.1 help files can still be accessed by the <code><a href="reference/?.ht
 
   
 
+
+  
 
   </body>
 </html>
