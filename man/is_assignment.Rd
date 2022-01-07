@@ -7,7 +7,7 @@
 is_assignment(parse_tree)
 }
 \arguments{
-\item{parse_tree}{An un-evaluated expression as a list}
+\item{parse_tree}{An unevaluated expression as a list}
 }
 \value{
 A logical

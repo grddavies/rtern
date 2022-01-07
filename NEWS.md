@@ -1,6 +1,10 @@
+# rtern 0.1.2
+
+- Fix bug when using `?` inside functions by using rlang quosures.
+
 # rtern 0.1.1
 
-- Dealt with some `R CMD check` notes relating to documentation
+- Dealt with some `R CMD check` notes relating to documentation.
 
 # rtern 0.1.0
 
