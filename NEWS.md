@@ -1,6 +1,8 @@
 # rtern 0.1.2
 
-- Fix bug when using `?` inside functions by using rlang quosures.
+- Fix bug when using `?` inside functions by using `rlang` quosures.
+
+- Fixed link in README.md
 
 # rtern 0.1.1
 
